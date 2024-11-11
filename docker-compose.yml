@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  webapp:
+    container_name: contenedor_group6
+    restart: always
+    build:
+    ports:
+      - "5000:3000"
+    links:
+      - database
+    volumes:
+      - .:/usr/src/app
+
+  database:
+    container_name: contenedor_db
+    image: mongo
+    ports:
+      - "27017:27017"
